@@ -4,7 +4,7 @@ function AddItem({list , setList}){
  
     function add(){
         setList([...list,{
-            name:  + (list.length + 1 ),
+            name: "gorev" + (list.length + 1 ),
             status: "active",
             id: list.length +1,
         }])
