@@ -1,27 +1,22 @@
 
 import React, { useState } from 'react';
-function AddItem({list}){
-    // list.push({
-    //     name: "Görev 3",
-    //     status: "active",
-    //     id:3,
-      
-    //   })
-    
-
+function AddItem({list , setList}){
  
     function add(){
-      setList([...list,{
-        name: "Görev 3",
-        status: "passive",
-        id:3,
-       }])
+        setList([...list,{
+            name:  + (list.length + 1 ),
+            status: "active",
+            id: list.length +1,
+        }])
     }
-  
+    function handleChange(event) {
+        var mission = event.target.value;
+        console.log(mission);
+    }  
     return(
         <>
-            <input type="text" name="add" /> 
-             <button onClick={add} > Add</button>
+            <input type="text" name="add"  onChange={ handleChange} /> 
+             <button onClick={add} > Add</button> 
         </>
     )
 }
