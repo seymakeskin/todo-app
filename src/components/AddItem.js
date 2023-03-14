@@ -1,16 +1,21 @@
 
 import React, { useState } from 'react';
 function AddItem({list , setList}){
-    const [inputName, setInputName] = useState();
+    const [inputName, setInputName] = useState("");
 
-    function add(){
     
+    function add(){
+        if(!inputName){
+            alert('lütfen bir görev giriniz!')
+           return false;
+           
+        }
         setList([...list,{
             name: inputName + (list.length + 1 ),
-            status: "active",
+            status: false,
             id: list.length +1,
         }])
-        setInputName("")
+        setInputName("");
     }
 
    

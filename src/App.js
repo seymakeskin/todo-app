@@ -1,39 +1,43 @@
 import './App.css';
 import AddItem from './components/AddItem';
 import ListItem from './components/ListItem';
-import Sayac from './components/Sayac';
 import React, { useState } from 'react';
 
 
 function App() {
 
-let listArr = [
+  let listArr = [
     {
       name: "Görev 1",
-      status: "active",
+      status: false,
       id:1,
 
     },
     {
         name: "Görev 2",
-        status: "passive",
+        status: true,
         id:2,
-    }
+    },
+    {
+      name: "Görev 3",
+      status: true,
+      id:3,
+  }
   ]
-  const [list, setList] = useState(listArr)
+  console.log(listArr);
+  
+  const [list, setList] = useState(listArr);
 
   return (
-    <div className="App">
+    <div className="App ">
         <h1 className="Header"> Things To do</h1>
-
-        <AddItem list={list} setList={setList}/>
+        <AddItem list={list} setList={setList} />
 
         {
           list.map(item => (  
-            <ListItem key= {item.id} data={item} />
+            <ListItem key= {item.id} data={item}  list={list}  setList={setList}  />
           ))
         }  
-        {list.length}
     </div>
   );
 }
